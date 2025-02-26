@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Employee {
+  id           Int       @id @default(autoincrement())
+  name         String
+  birthday     DateTime
+  position     Position  @relation(fields: [position_id], references: [id])
+  position_id  Int
+  company      Company   @relation(fields: [company_id], references: [id])
+  company_id   Int
+}
+
+model Company {
+  id        Int        @id @default(autoincrement())
+  title     String
+  employees Employee[]
+}
+
+model Position {
+  id         Int         @id @default(autoincrement())
+  title      String
+  salary     Decimal     @db.Decimal(8,2)
+  employees  Employee[]
+}
