@@ -5,12 +5,12 @@ export async function GET(
   { params }: { params: Promise<{id: string}> }
 ) {
   const { id } = await params;
-  const employee  = await prisma.employee.findFirst({
+  const position  = await prisma.position.findFirst({
     where: {
       id: parseInt(id),
     }
   })
-  return Response.json({employee});
+  return Response.json({position});
 }
 
 export async function PUT(
@@ -19,7 +19,7 @@ export async function PUT(
 ) {
   const { id } = await params;
   const body = await req.json();
-  await prisma.employee.update({
+  await prisma.position.update({
     where: {
       id: parseInt(id)
     },
@@ -35,7 +35,7 @@ export async function DELETE(
   { params }: { params: Promise<{id: string}> }
 ) {
   const { id } = await params;
-  const deleted = await prisma.employee.delete({
+  const deleted = await prisma.position.delete({
     where: {
       id: parseInt(id)
     }
