@@ -3,6 +3,7 @@ import Link from "next/link";
 import getPositions from "@/actions/positions/getPositions";
 import PositionDashboardItem from "@/app/dashboard/positions/components/PositionDashboardItem";
 
+// force dynamic rendering
 export const revalidate = 0;
 
 export default async function PositionsPage() {

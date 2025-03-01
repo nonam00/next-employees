@@ -4,6 +4,7 @@ import {Company} from "@/types";
 import getCompanies from "@/actions/companies/getCompanies";
 import CompanyDashboardItem from "./components/CompanyDashboardItem";
 
+// force dynamic rendering
 export const revalidate = 0;
 
 export default async function CompaniesPage() {

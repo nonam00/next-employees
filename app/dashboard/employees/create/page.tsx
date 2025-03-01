@@ -3,6 +3,9 @@ import CompaniesOptions from "../components/CompaniesOptions";
 import PositionsOptions from "../components/PositionsOptions";
 import createEmployee from "@/actions/employees/createEmployee";
 
+// force dynamic rendering
+export const revalidate = 0;
+
 export default function CreateEmployeePage() {
   return (
     <Form action={createEmployee}>

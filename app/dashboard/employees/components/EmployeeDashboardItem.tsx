@@ -8,16 +8,13 @@ export default async function EmployeeDashboardItem({
 }: {
   employee: EmployeeVm
 }) {
-  const birthday = new Date(employee.birthday);
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row gap-2">
       <p className="flex-1">{employee.name}</p>
       <p className="flex-1">{employee.position.title}</p>
       <p className="flex-1">{employee.company.title}</p>
       <p className="flex-1">{employee.position.salary}</p>
-      <p className="flex-1">
-        {birthday.getDay()}/{birthday.getMonth() + 1}/{birthday.getFullYear()}
-      </p>
+      <p className="flex-1">{employee.birthday.slice(0, 10)}</p>
       <Link
         href={`/dashboard/employees/${employee.id}`}
         className="

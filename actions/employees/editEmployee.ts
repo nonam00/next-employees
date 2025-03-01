@@ -1,10 +1,13 @@
-import {id} from "postcss-selector-parser";
+'use server'
+
 import {redirect} from "next/navigation";
 
 export default async function editEmployee(formData: FormData) {
+  const id = formData.get("id") as string;
+
   const employee = {
-    name: formData.get("name"),
-    date: new Date(formData.get("birthday") as string),
+    name: formData.get("name") as string,
+    birthday: new Date(formData.get("birthday") as string),
     position_id: parseInt(formData.get("positionId") as string),
     company_id: parseInt(formData.get("companyId") as string),
   }

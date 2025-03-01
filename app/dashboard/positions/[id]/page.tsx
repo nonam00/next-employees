@@ -24,19 +24,21 @@ export default async function PositionEdit({
       <input type="hidden" name="id" value={position.id}/>
       <div className="flex flex-row gap-4 align-middle">
         <div className="flex flex-col flex-1">
-          <label>Title ({position.title})</label>
+          <label>Title</label>
           <input
             className="border-1 rounded-sm border-black"
             name="title"
+            defaultValue={position.title}
             required
           />
         </div>
         <div className="flex flex-col flex-1">
-          <label>Salary ({position.salary})</label>
+          <label>Salary</label>
           <input
             className="border-1 rounded-sm border-black"
             name="salary"
             type="number"
+            defaultValue={position.salary}
             min="20000"
             required
           />

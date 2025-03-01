@@ -4,6 +4,7 @@ import {EmployeeVm} from "@/types";
 import EmployeeDashboardItem from "./components/EmployeeDashboardItem";
 import Link from "next/link";
 
+// force dynamic rendering
 export const revalidate = 0;
 
 export default async function EmployeesPage() {

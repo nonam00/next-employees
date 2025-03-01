@@ -9,7 +9,7 @@ export type Position = {
 export type EmployeeVm = {
   id: number,
   name: string,
-  birthday: Date,
+  birthday: string,
   company: { title: string },
   position: {
     title: string,
@@ -20,7 +20,7 @@ export type EmployeeVm = {
 export type Employee = {
   id: number,
   name: string,
-  birthday: Date,
+  birthday: string,
   company_id: number
   position_id: number
 }

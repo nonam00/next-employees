@@ -18,10 +18,11 @@ export default async function CompanyEdit({
       <input type="hidden" name="id" value={company.id}/>
       <div className="flex flex-row gap-4 align-middle">
         <div className="flex flex-col flex-1">
-          <label>Title ({company.title})</label>
+          <label>Title</label>
           <input
             className="border-1 rounded-sm border-black"
             name="title"
+            defaultValue={company.title}
             required
           />
         </div>

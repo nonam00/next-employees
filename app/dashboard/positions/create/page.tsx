@@ -1,7 +1,7 @@
 import Form from "next/form";
 import createPosition from "@/actions/positions/createPosition";
 
-export default async function PositionCreateForm() {
+export default function PositionCreateForm() {
   return (
     <Form
       className="flex flex-col m-10 w-2"

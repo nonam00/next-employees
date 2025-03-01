@@ -19,7 +19,7 @@ export async function PUT(
 ) {
   const { id } = await params;
   const body = await req.json();
-  await prisma.employee.update({
+  const updated = await prisma.employee.update({
     where: {
       id: parseInt(id)
     },
@@ -27,7 +27,7 @@ export async function PUT(
       ...body
     }
   })
-  return Response.json({})
+  return Response.json({updated})
 }
 
 export async function DELETE(

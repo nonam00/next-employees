@@ -1,7 +1,7 @@
 import Form from "next/form";
 import createCompany from "@/actions/companies/createCompany";
 
-export default async function CompanyCreateForm() {
+export default function CompanyCreateForm() {
   return (
     <Form
       className="flex flex-col m-10 w-2"
