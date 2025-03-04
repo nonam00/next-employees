@@ -10,7 +10,7 @@ export default async function createEmployee(formData: FormData) {
     company_id: parseInt(formData.get('companyId') as string),
   }
 
-  const response = await fetch("http://localhost:3000/api/employees", {
+  const response = await fetch(process.env.API_URL + "/employees", {
     method: 'POST',
     body: JSON.stringify(employee),
   })

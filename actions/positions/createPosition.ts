@@ -1,4 +1,4 @@
-'use server';
+'use server'
 
 import {redirect} from "next/navigation";
 
@@ -8,7 +8,7 @@ export default async function createPosition(formData: FormData) {
     salary: parseFloat(formData.get("salary") as string),
   }
 
-  const response = await fetch("http://localhost:3000/api/positions", {
+  const response = await fetch(process.env.API_URL + "/positions", {
     method: "POST",
     body: JSON.stringify(position),
   })

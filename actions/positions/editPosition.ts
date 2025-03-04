@@ -7,7 +7,7 @@ export default async function editPosition(formData: FormData): Promise<void> {
   const title = formData.get("title") as string;
   const salary = formData.get("salary") as string;
 
-  const response = await fetch(`http://localhost:3000/api/positions/${id}`, {
+  const response = await fetch(`${process.env.API_URL}/positions/${id}`, {
     method: "PUT",
     body: JSON.stringify({
       title: title,
@@ -16,6 +16,6 @@ export default async function editPosition(formData: FormData): Promise<void> {
   })
 
   if (response.ok) {
-    redirect("http://localhost:3000/dashboard/positions");
+    redirect("/dashboard/positions");
   }
 }

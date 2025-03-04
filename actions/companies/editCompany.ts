@@ -6,7 +6,7 @@ export default async function editCompany(formData: FormData) {
   const id = formData.get("id") as string;
   const title = formData.get("title") as string;
 
-  const response = await fetch(`http://localhost:3000/api/companies/${id}`, {
+  const response = await fetch(`${process.env.API_URL}/companies/${id}`, {
     method: "PUT",
     body: JSON.stringify({
       title: title,
@@ -14,6 +14,6 @@ export default async function editCompany(formData: FormData) {
   })
 
   if (response.ok) {
-    redirect("http://localhost:3000/dashboard/companies");
+    redirect("/dashboard/companies");
   }
 }

@@ -11,7 +11,7 @@ export default async function editEmployee(formData: FormData) {
     position_id: parseInt(formData.get("positionId") as string),
     company_id: parseInt(formData.get("companyId") as string),
   }
-  const response = await fetch(`http://localhost:3000/api/employees/${id}`, {
+  const response = await fetch(`${process.env.API_URL}/employees/${id}`, {
     method: "PUT",
     body: JSON.stringify(employee),
   })

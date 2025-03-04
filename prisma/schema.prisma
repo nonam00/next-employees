@@ -3,29 +3,29 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model Employee {
-  id           Int       @id @default(autoincrement())
-  name         String
-  birthday     DateTime
-  position     Position  @relation(fields: [position_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  position_id  Int
-  company      Company   @relation(fields: [company_id],  references: [id], onDelete: Cascade, onUpdate: Cascade)
-  company_id   Int
+  id          Int      @id @default(autoincrement())
+  name        String
+  birthday    DateTime
+  position    Position @relation(fields: [position_id], references: [id], onDelete: Cascade)
+  position_id Int
+  company     Company  @relation(fields: [company_id], references: [id], onDelete: Cascade)
+  company_id  Int
 }
 
 model Company {
-  id        Int          @id @default(autoincrement())
+  id        Int        @id @default(autoincrement())
   title     String
   employees Employee[]
 }
 
 model Position {
-  id         Int         @id @default(autoincrement())
-  title      String
-  salary     Decimal     @db.Decimal(8,2)
-  employees  Employee[]
+  id        Int        @id @default(autoincrement())
+  title     String
+  salary    Decimal    @db.Decimal(8, 2)
+  employees Employee[]
 }

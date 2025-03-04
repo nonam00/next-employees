@@ -1,9 +1,9 @@
-'use server';
+'use server'
 
 import {Position} from "@/types";
 
 export default async function getPositions(): Promise<{ positions: Position[]} > {
-  const response = await fetch('http://localhost:3000/api/positions');
+  const response = await fetch(process.env.API_URL + '/positions');
   if (!response.ok) {
     return { positions: [] }
   }
