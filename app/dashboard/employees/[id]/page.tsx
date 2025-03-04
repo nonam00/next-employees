@@ -18,14 +18,6 @@ export default async function EditEmployeePage({
     return redirect(`/dashboard/employees`);
   }
 
-  const birthday = new Date(employee.birthday);
-
-  const date = {
-    year: birthday.getFullYear().toString(),
-    month: (birthday.getMonth() + 1).toString().padStart(2, "0"),
-    day: birthday.getDate().toString().padStart(2, "0"),
-  }
-
   return (
     <Form action={editEmployee}>
       <input type="hidden" name="id" value={id} />
@@ -45,7 +37,7 @@ export default async function EditEmployeePage({
             className="border-1 rounded-sm border-black"
             type="date"
             name="birthday"
-            defaultValue={`${date.year}-${date.month}-${date.day}`}
+            defaultValue={employee.birthday.slice(0, 10)}
             required
           />
         </div>
